@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e0f7fa 0%, #e8eaf6 100%);
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.ticker-wrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(17, 24, 39, 0.9);
+    color: white;
+    padding: 0.75rem 0;
+    box-sizing: border-box;
+    z-index: 100;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.ticker-move {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: ticker 60s linear infinite;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.info-cuti-label {
+    background-color: #FBBF24;
+    color: #DC2626;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.schedule-table-wrapper {
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table {
+    border-collapse: collapse;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 0.75rem 0.5rem;
+    white-space: normal;
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.6;
+    text-align: center;
+    vertical-align: top;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.schedule-table th {
+    background-color: #a7f3d0;
+    color: #065f46;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.schedule-table td {
+    color: #1f293b;
+    background-color: #ffffff;
+    font-weight: 600;
+}
+
+.schedule-table tr:last-child td {
+    border-bottom: none;
+}
+
+
+.fade-bottom {
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+.promo-fullscreen-container {
+    position: fixed;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    z-index: 50;
+    overflow: hidden;
+}
+
+.promo-fullscreen-image {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+@keyframes simpleFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.promo-fullscreen-container.fade-in {
+    animation: simpleFade 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Header override to ensure fixed positioning works as expected in React structure if needed, 
+   though Tailwind classes on elements usually handle it. 
+   Reference has: header { position: fixed; ... } 
+*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: transparent;
+}
